@@ -11,10 +11,7 @@
  */
 
 #include <Stepper.h>
-//int WHITE = 4;
-//int BROWN = 5;
-//int GREEN = 6;
-//int RED = 7;
+
 const int stepsPerRevolution = 200;
 Stepper myStepper(stepsPerRevolution, 11, 12, 13, 14);
 Stepper myLoadingStepper(stepsPerRevolution, 2, 3, 4, 5);
@@ -34,8 +31,6 @@ int echoPin2 = 19;    //Echo - yellow Jumper
 int irSensor = 33;
 int duration1, inches1;
 int duration2, inches2;
-//float basket1distance, basket2distance, basket3distance;
-//int toCorner;
 float pi = 3.14159265359;
  
 void setup() {
@@ -59,10 +54,6 @@ void setup() {
   pinMode(in3, OUTPUT);
   pinMode(in4, OUTPUT);
 
- //pinMode(WHITE, OUTPUT);
- //pinMode(BROWN, OUTPUT);
- //pinMode(GREEN, OUTPUT);
- //pinMode(RED, OUTPUT);
 }
  
 void loop()
@@ -161,15 +152,12 @@ int findLocation(){
 void stepForward(){
   
     myStepper.step(-5);
-
      //Serial.println("Done stepping forward.");
 }
 void stepBackward(){
   
-
    myStepper.step(5);
    //Serial.println("Done stepping backward.");
-  
 }
 
 
