@@ -84,37 +84,60 @@ int basket1distance = basket1distance();
 int basket1angle = basket1angle();//find basket1
 int basket2distance = basket1distance();
 int basket2angle = basket1angle();//find basket2
-int basket1distance = basket1distance();
-int basket2angle = basket1angle();//find basket3
+int basket3distance = basket3distance();
+int basket3angle = basket3angle();//find basket3
+    
+int stepsToBasket1 = basket1angle/3.6;
+int stepsToBasket2 = basket2angle/3.6;
+int stepsToBasket3 = basket3angle/3.6;
 
 
-for(int i; i < 5; i++){
-  readIr();
-  for(int i =0; i < stepsAcrossBoard, i++){
-    if(readIr = HIGH){
-      stepForward();
+for(int i=0; i < 100; i++)
+{
+  basket = i % 5;
+  switch basket;
+    case 0:
+    myStepper.step(stepsToBasket1);
+    if (readIr = LOW)
+    {
+        shoot();
     }
-    else if (readIr = LOW){
-      stepForward();
-      shoot();
+    break;
+    
+    case 1:
+    myStepper.step(stepsToBasket2 - stepsToBasket1);
+    if (readIr() = LOW)
+    {
+        shoot();
     }
-
-      for(int i =0; i < stepsAcrossBoard, i++){
-    if(readIr = HIGH){
-      stepBackward();
+    break;
+    
+    case 2:
+    myStepper.step(stepsToBasket3 - stepsToBasket2);
+    if (readIr() = LOW)
+    {
+        shoot();
     }
-    else if (readIr = LOW){
-      stepForward();
-      shoot();
+    break;
+    
+    case 3:
+    myStepper.step(-(stepsToBasket3 - stepsToBasket2));
+    if (readIr() = LOW)
+    {
+        shoot();
     }
-  }
+    break;
+    
+    case 4:
+    myStepper.step(-(stepsToBasket2 - stepsToBasket1));
+    if (readIr() = LOW)
+    {
+        shoot();
+    }
+    myStepper.step(-stepsToBasket1);
+    break;
 }
-
-//load ball
-
-//shoot
-
- 
+   
 
 }
 
@@ -138,8 +161,6 @@ int findLocation(){
 void stepForward(){
   
     myStepper.step(-5);
-
-  
 
      //Serial.println("Done stepping forward.");
 }
