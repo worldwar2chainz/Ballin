@@ -271,7 +271,7 @@ int leftBasketAngle(){
  int y = readY();
  int x = readX();
 
- int basket1theta = atan((y-15)/x);
+ int basket1theta = atan(y/(x-15));
 
  return basket1theta;
   
@@ -293,7 +293,12 @@ int middleBasketAngle(){
  int y = readY();
  int x = readX();
 
- int basket2theta = atan((y-36)/x);
+ if(x < 36){
+     int basket2theta = atan(y/(36-x))
+ }
+ else if(x > 36){
+     int basket2theta = atan(y/(x-36))
+ }
 
  return basket2theta;
   
@@ -315,7 +320,7 @@ int rightBasketAngle(){
  int y = readY();
  int x = readX();
 
- int basket3theta = atan((y-57)/x);
+ int basket3theta = 360 - atan(y/(57-x));
 
   
 }
@@ -342,6 +347,6 @@ void shoot(){
 
   myLoadingStepper.step(50);
   myLoadingStepper.step(-50);
-  delay(1000);
+  delay(250);
 }
 
